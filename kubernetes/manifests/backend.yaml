@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: yourusername/backend:latest
+          image: wole9548/backend:latest
           imagePullPolicy: Always
           ports:
             - name: http

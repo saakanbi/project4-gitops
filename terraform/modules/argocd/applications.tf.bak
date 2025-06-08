@@ -9,7 +9,7 @@ resource "kubernetes_manifest" "frontend_application" {
     spec = {
       project = "default"
       source = {
-        repoURL        = "https://github.com/wole9548/project4-gitops.git"
+        repoURL        = "https://github.com/yourusername/project4-gitops.git"
         targetRevision = "HEAD"
         path           = "kubernetes/manifests"
         directory = {
@@ -31,8 +31,7 @@ resource "kubernetes_manifest" "frontend_application" {
 
   depends_on = [
     kubernetes_namespace.argocd,
-    helm_release.argocd,
-    kubernetes_namespace.apps
+    helm_release.argocd
   ]
 }
 
@@ -47,7 +46,7 @@ resource "kubernetes_manifest" "backend_application" {
     spec = {
       project = "default"
       source = {
-        repoURL        = "https://github.com/wole9548/project4-gitops.git"
+        repoURL        = "https://github.com/yourusername/project4-gitops.git"
         targetRevision = "HEAD"
         path           = "kubernetes/manifests"
         directory = {
@@ -69,8 +68,7 @@ resource "kubernetes_manifest" "backend_application" {
 
   depends_on = [
     kubernetes_namespace.argocd,
-    helm_release.argocd,
-    kubernetes_namespace.apps
+    helm_release.argocd
   ]
 }
 
@@ -85,7 +83,7 @@ resource "kubernetes_manifest" "monitoring_application" {
     spec = {
       project = "default"
       source = {
-        repoURL        = "https://github.com/wole9548/project4-gitops.git"
+        repoURL        = "https://github.com/yourusername/project4-gitops.git"
         targetRevision = "HEAD"
         path           = "kubernetes/manifests"
         directory = {
@@ -107,7 +105,6 @@ resource "kubernetes_manifest" "monitoring_application" {
 
   depends_on = [
     kubernetes_namespace.argocd,
-    helm_release.argocd,
-    kubernetes_namespace.monitoring
+    helm_release.argocd
   ]
 }

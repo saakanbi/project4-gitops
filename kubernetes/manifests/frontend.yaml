@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: yourusername/frontend:latest
+          image: wole9548/frontend:latest
           imagePullPolicy: Always
           ports:
             - name: http

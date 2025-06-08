@@ -52,13 +52,13 @@ project4-gitops/
 ```bash
 # Build and push frontend
 cd src/frontend
-docker build -t yourusername/frontend:latest .
-docker push yourusername/frontend:latest
+docker build -t wole9548/frontend:latest .
+docker push wole9548/frontend:latest
 
 # Build and push backend
 cd ../backend
-docker build -t yourusername/backend:latest .
-docker push yourusername/backend:latest
+docker build -t wole9548/backend:latest .
+docker push wole9548/backend:latest
 ```
 
 ### 2. Provision Infrastructure
@@ -69,14 +69,15 @@ terraform init
 terraform apply
 ```
 
-### 3. Configure kubectl
+### 3. Deploy Applications
 
 ```bash
-aws eks update-kubeconfig --region $(terraform output -raw region) --name $(terraform output -raw cluster_name)
+# From project root
+./deploy-apps.sh
 ```
 
 ### 4. Access Applications
 
-- ArgoCD: `kubectl get svc argocd-server -n argocd`
-- Applications: `kubectl get ingress -n apps`
-- Grafana: `kubectl get svc prometheus-grafana -n monitoring`
+- ArgoCD: Access via the LoadBalancer URL from the script output
+- Applications: Access via the Ingress URLs from the script output
+- Grafana: Access via the LoadBalancer URL from the script output (default credentials: admin/prom-operator)
