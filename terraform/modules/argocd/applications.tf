@@ -10,7 +10,7 @@ resource "kubernetes_manifest" "frontend_application" {
       project = "default"
       source = {
         repoURL        = "https://github.com/wole9548/project4-gitops.git"
-        targetRevision = "HEAD"
+        targetRevision = "dev"
         path           = "kubernetes/manifests"
         directory = {
           include = "frontend.yaml"
@@ -48,7 +48,7 @@ resource "kubernetes_manifest" "backend_application" {
       project = "default"
       source = {
         repoURL        = "https://github.com/wole9548/project4-gitops.git"
-        targetRevision = "HEAD"
+        targetRevision = "dev"
         path           = "kubernetes/manifests"
         directory = {
           include = "backend.yaml"
@@ -86,7 +86,7 @@ resource "kubernetes_manifest" "monitoring_application" {
       project = "default"
       source = {
         repoURL        = "https://github.com/wole9548/project4-gitops.git"
-        targetRevision = "HEAD"
+        targetRevision = "dev"
         path           = "kubernetes/manifests"
         directory = {
           include = "monitoring.yaml"
